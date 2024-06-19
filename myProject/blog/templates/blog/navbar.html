@@ -25,6 +25,20 @@
           <a class="nav-item nav-link" href="{% url 'show-notifications' %}">Notifications</a>
           <a class="nav-item nav-link" href="{% url 'room-enroll' %}">Chats</a>
           <a class="nav-item nav-link" href="{% url 'post-create' %}">New Post</a>
+          
+           <a class="nav-item nav-link" href="{% url 'user-posts' user %}">My Post</a>
+           <a class="nav-item nav-link" href="{% url 'all-like' %}">Liked Post</a>
+           <a class="nav-item nav-link" href="{% url 'all-save' %}">Saved Post</a>
+ 
+       
+             
+                  
+          </ul>
+          <br>
+ 
+
+
+
 
           {% endif %}
           
