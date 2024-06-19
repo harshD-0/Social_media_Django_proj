@@ -63,44 +63,32 @@
     {% endif %}
 
 </div>
-
-<div class="col-md-4">
-  <div class="content-section" style="border-top: 4px solid red;">
-      <h4>{{user.first_name}} {{user.last_name}}</h4>
-      <!-- <p class="text-muted">You can put any information here you'd like. -->
-          <ul class="list-group">
-            <a href="{% url 'user-posts' user %}"><li class="list-group-item list-group-item-light">My Posts</li></a>
-            <a href="{% url 'all-like' %}"><li class="list-group-item list-group-item-light">Liked Posts</li></a>
-            <a href="{% url 'all-save' %}"><li class="list-group-item list-group-item-light">Saved Posts</li></a>          
-          </ul>
-          <br>
-  </div>
-
-  <!-- PEOPLE YOU CAN FOLLOW -->
-
-  <div class="content-section " style="border-top: 4px solid blue;">
+<div class="content-section" style="border-top: 4px solid red;">
     <h4>Follow People</h4>
     <br>
-        <ul class="list-group">
-          {% for user in random_users %}
-            <a href="{% url 'profile-detail-view' user.pk %}"><li class="list-group-item list-group-item-light">{{ user.username }}</li></a>
-          {% endfor %}
-  
-        </ul>
-        <br>
-  </div>
+    <ul class="list-group">
+        {% for user in random_users %}
+        <li class="list-group-item list-group-item-light">
+            <a href="{% url 'profile-detail-view' user.pk %}">{{ user.username }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+    <br>
+</div>
 
-</div>  
+ 
+
+ 
 
 {% endblock %}
 {% block script %}
 <script>
-
-  var colors = ['#FB9797', '#FB84BD', '#EA84FB', '#FF6D3F', '#4270E7', 'green', 'blue'];
-    $('.add-border').each(function() {
-        $(this).css('border-top', "3px solid " + colors[Math.floor(Math.random() * colors.length)]);
+    // Generate random border colors
+    var colors = ['#FB9797', '#FB84BD', '#EA84FB', '#FF6D3F', '#4270E7', 'green', 'blue'];
+    $('.content-section').each(function() {
+        var randomColor = colors[Math.floor(Math.random() * colors.length)];
+        $(this).css('border-top', '4px solid ' + randomColor);
     });
-
 </script>
 {% endblock %}
 
