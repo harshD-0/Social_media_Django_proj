@@ -32,11 +32,6 @@
                         {% endif %}
                         <br>
                         Developed by <a target="_blank" href="https://github.com/harshD-0">Harsh Dugar</a>
-                        <br>
-                        <br> Key Features
-                        <br> 1. User Authentication and Profiles <br> &emsp; - Build your profile, follow others, and make friends 
-                        <br> 2. Messaging and Chat <br> &emsp; - Enjoy real-time private chatting
-                        <br> 3. News Feed and Content Sharing <br>&emsp; - Share posts including photos and videos <br>&emsp; - Like, share, comment on your friends' posts
                       </p>
                       {% if user.is_authenticated %}
                         <a class="btn btn-lg btn-primary font-weight-bold mr-2 rounded-pill px-4 py-2" href="{% url 'blog-home' %}">Home</a>
@@ -45,7 +40,15 @@
                         <a class="btn btn-lg btn-primary-soft text-primary font-weight-bold" href="{% url 'account_login' %}">LOGIN</a>
                         {% endif %}
                   </div>
-                  <div class="col-lg-6 d-none d-lg-block" data-aos="fade-up" data-aos-delay="100"><img class="img-fluid" src="/static/blog/images/icon1.png" /></div>
+                  <div class="col-lg-6 d-none d-lg-block" data-aos="fade-up" data-aos-delay="100">
+                      <img class="img-fluid" src="/static/blog/images/icon1.png" />
+                      <!-- Random Rick and Morty Quote -->
+                      <div class="mt-4">
+                          <blockquote class="blockquote">
+                              <p id="rickAndMortyQuote" class="mb-0">Loading quote...</p>
+                          </blockquote>
+                      </div>
+                  </div>
               </div>
           </div>
       </div>
@@ -54,4 +57,29 @@
 
 </div>
 
+<!-- JavaScript for Random Quote -->
+<script>
+    // Array of Rick and Morty quotes
+    const rickAndMortyQuotes = [
+         "Nobody exists on purpose. Nobody belongs anywhere. Everybody’s gonna die. Come watch TV.",
+         "Nobody exists on purpose. Nobody belongs anywhere. Everybody’s gonna die. Come watch TV.",
+         "Nobody exists on purpose. Nobody belongs anywhere. Everybody’s gonna die. Come watch TV.",
+        "Existence is pain to a Meeseeks, Jerry. And we will do anything to alleviate that pain."
+        // Add more quotes as needed
+    ];
+
+    // Function to generate a random quote
+    function generateRandomQuote() {
+        const randomIndex = Math.floor(Math.random() * rickAndMortyQuotes.length);
+        return rickAndMortyQuotes[randomIndex];
+    }
+
+    // Update the quote on page load
+    window.onload = function() {
+        const quoteElement = document.getElementById('rickAndMortyQuote');
+        quoteElement.textContent = generateRandomQuote();
+    };
+</script>
+
 {% endblock %}
+s
