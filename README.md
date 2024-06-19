@@ -23,6 +23,7 @@ Navigate to the repo  such that on 'ls' we see myProject.
 cd FriendsVerse
 
 # Create and activate a virtual environment
+```bash
 cd myProject
 virtualenv p
 cd p
@@ -34,5 +35,5 @@ pip install -r requirements.txt
 
 # Start the development server
 python manage.py run server
-
+```
 
